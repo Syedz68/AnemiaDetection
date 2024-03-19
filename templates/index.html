@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Anemia Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        #header {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        #container {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            margin-top: 20px;
+            padding: 20px;
+        }
+
+        #fileUpload {
+            width: 30%;
+        }
+
+        #imageFrames {
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+        }
+
+        .frame {
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        #textSection {
+            width: 30%;
+        }
+        img {
+            max-width: 100%;
+        }
+        .gallery {
+            background-color: #F4A397;
+            padding: 80px 0;
+        }
+        .gallery img {
+            background-color: #ffffff;
+            padding: 15px,
+            width: 100%,
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+        }
+    </style>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../static/style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <div class="container">
+      <h1 class="text-center">Anemia Detection</h1>
+      <br>
+      <div class="row">
+        <div class="col-md-5">
+          <form action="/process_form" method="POST" enctype="multipart/form-data">
+
+            <label class="form-label" for="inputImage">Upload Image</label>
+            <input type="file" class="form-control" name="inputImage" id="inputImage" />
+            <br>
+            <button type="submit" class="btn btn-primary">Upload</button>
+          </form>
+        </div>
+        <div class="col-md-7">
+          <section class="gallery min-vh-100">
+            <div class="container-lg">
+              <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-3">
+                <div class="col">
+                  {% if not img1 %}
+                  <img src="../static/empty.jpg" class="gallery-item" alt="Empty">
+                  {% else %}
+                  <img src="../{{ img1 }}" class="gallery-item" alt="Eye Image" style="width:256px;height:256px;">
+                  <br>
+                  <h5 style="text-align: center">Eye Image</h5>
+                  {% endif %}
+                </div>
+                <div class="col">
+                  {% if not img2 %}
+                  <img src="../static/empty.jpg" class="gallery-item" alt="Empty">
+                  {% else %}
+                  <img src="../{{ img2 }}" class="gallery-item" alt="Predicted Mask">
+                  <br>
+                  <h5 style="text-align: center">Predicted Mask</h5>
+                  {% endif %}
+                </div>
+                <div class="col">
+                  {% if not img3 %}
+                  <img src="../static/empty.jpg" class="gallery-item" alt="Empty">
+                  {% else %}
+                  <img src="../{{ img3 }}" class="gallery-item" alt="Conjunctiva">
+                  <br>
+                  <h5 style="text-align: center">Conjunctiva</h5>
+                  {% endif %}
+                </div>
+              </div>
+              <br><br>
+              <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                  {% if percentage and prediction %}
+                  <h3 class="box" style="text-align: center">{{percentage}}% {{prediction}}</h3>
+                  {% endif %}
+                </div>
+                <div class="col-md-2"></div>
+              </div>
+
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</html>
