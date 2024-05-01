@@ -7,3 +7,6 @@ For the segmentation task, Unet was used as a pre trained model on a custom data
 
 // Classification Task
 For the classification task, CNN was used as a pre trained model on a publicly availabe dataset which containts the conjunctiva images labeled as Anemic or Nonanemic. Then the segmented conjuctiva from the segmentation part mentioned above is passed to this model and the probabilty of the image having Anemia is then determined.
+
+// Images of the web-app
+![soft1](https://github.com/Syedz68/AnemiaDetection/assets/107263740/2419f5b3-db6f-43a6-bbab-ea61ae5668ec)
