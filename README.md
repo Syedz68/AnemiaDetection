@@ -1,4 +1,4 @@
----Anemia Detection---
+# Anemia Detection
 
 This is a web application to detect anemia from eye image. This web application was built using Flask framework. There are two trianed deep learning models used for this project.
 
