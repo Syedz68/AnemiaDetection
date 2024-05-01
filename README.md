@@ -10,3 +10,5 @@ For the classification task, CNN was used as a pre trained model on a publicly a
 
 // Images of the web-app
 ![soft1](https://github.com/Syedz68/AnemiaDetection/assets/107263740/2419f5b3-db6f-43a6-bbab-ea61ae5668ec)
+
+![soft2](https://github.com/Syedz68/AnemiaDetection/assets/107263740/eae0263f-caaa-4f78-b389-9efe8ec6e21e)
