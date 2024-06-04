@@ -1,16 +1,21 @@
 # Anemia Detection
 
-This is a web application to detect anemia from eye image. This web application was built using Flask framework. There are two trianed deep learning models used for this project.
+This web application is designed to detect anemia from images using machine learning models. Built with Flask and TensorFlow/Keras, the application allows users to upload images, processes them, and provides a prediction on the presence of anemia.
 
-// Segmentation Task
+## Features
+- **Image Processing and Prediction**
+  - *Image Upload*: Users can upload images through a web interface.
+  - *Image Segmentation*: The application segments the uploaded image to focus on the region of interest.
+  - *Mask Prediction*: Generates a mask for the segmented image.
+  - *Conjunctival Region Extraction*: Extracts the conjunctival region from the image for further analysis.
+  - *Anemia Prediction*: Predicts the presence of anemia based on the processed image.
+- **Machine Learning Models**
+  - *Custom Metrics and Loss Functions*: Implements dice_coef, dice_loss, and iou for model evaluation.
+  - *Pre-trained Models*: Loads pre-trained models for mask prediction and anemia detection.
+- **Asynchronous Processing**
+  - *Async Image Processing*: Uses asynchronous functions to handle image processing tasks.
 
-For the segmentation task, Unet was used as a pre trained model on a custom dataset. It is used to predict the conjunctiva mask of an eye image. Then by overlapping the prdeicted mask over the original image, the conjuctiva gets segmneted from the image.
-
-// Classification Task
-
-For the classification task, CNN was used as a pre trained model on a publicly availabe dataset which containts the conjunctiva images labeled as Anemic or Nonanemic. Then the segmented conjuctiva from the segmentation part mentioned above is passed to this model and the probabilty of the image having Anemia is then determined.
-
-// Images of the web-app
+## Images of the web-app
 
 ![soft1](https://github.com/Syedz68/AnemiaDetection/assets/107263740/2419f5b3-db6f-43a6-bbab-ea61ae5668ec)
 
